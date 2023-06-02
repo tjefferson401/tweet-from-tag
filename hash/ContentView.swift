@@ -14,17 +14,17 @@ func callOpenAI(prompt: String, completion: @escaping (String) -> ()) {
     let url = URL(string: "https://api.openai.com/v1/completions")!
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
-    var text = ""
+    var key = ""
     if let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
         let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
             let apiKey = dict["OPENAI_API"] as? String
             // Now you can use this apiKey where you need it
-        text = apiKey ?? "";
+        key = apiKey ?? "";
     }
-    if(text == "") {
+    if(key == "") {
         return;
     }
-    request.setValue("Bearer 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", forHTTPHeaderField: "Authorization")
+    request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.setValue("application/json", forHTTPHeaderField: "Accept")
 
