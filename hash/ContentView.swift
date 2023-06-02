@@ -10,7 +10,6 @@ import Foundation
 
 
 func callOpenAI(prompt: String, completion: @escaping (String) -> ()) {
-    print(prompt)
     // Prepare URL and request
     let url = URL(string: "https://api.openai.com/v1/completions")!
     var request = URLRequest(url: url)
@@ -22,7 +21,7 @@ func callOpenAI(prompt: String, completion: @escaping (String) -> ()) {
             // Now you can use this apiKey where you need it
         text = apiKey ?? "";
     }
-    if(text != "") {
+    if(text == "") {
         return;
     }
     request.setValue("Bearer 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", forHTTPHeaderField: "Authorization")
