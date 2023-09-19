@@ -1,5 +1,5 @@
 # tweet-from-tag
-Generate a tweet from a list of hashtags. My submission for the useless AI app revolution.
+Generate a tweet from a list of hashtags.
 
 # to set up
 1. Add a file: `tweet-from-tag/hash/Secrets.plist`
